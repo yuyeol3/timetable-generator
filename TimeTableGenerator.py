@@ -149,9 +149,3 @@ class TimeTableGenerator:
 
         result_img.save(path)  # 생성한 이미지를 렌더링해 저장
 
-if __name__ == "__main__":
-    ttgen = TimeTableGenerator()
-    ttgen.addSubject(
-        Subject("이산수학", "1234", [Lecture(0, "10:00", 240, "1234"),Lecture(2, "10:00", 240, "1234")])
-    )
-    ttgen.generate("./res.png")

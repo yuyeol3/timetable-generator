@@ -1,1 +1,7 @@
+# directories
+/myenv/
 /__pycache__/
+# files
+selected_classes.json
+res.png
+search_data.py
