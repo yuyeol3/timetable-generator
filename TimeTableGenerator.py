@@ -50,17 +50,15 @@ class TimeTableGenerator:
 
     def __overlap_check(self, classes_by_day : dict[str, list]):
         for an_yoil in list(classes_by_day.values())[:5]:
-
             if len(an_yoil) >= 2:
-
                 for idx, x in enumerate(an_yoil):
                     x_values = tuple(x.values())[0]
-                    if x_values != "사이버수업":
-
-                        for y in an_yoil[idx + 1:]:
-                            y_values = tuple(y.values())[0]
-                            if (y_values[0] <= x_values[0] <= y_values[1] or y_values[0] <= x_values[1] <= y_values[1]) or (x_values[0] <= y_values[0] <= x_values[1] or x_values[0] <= y_values[1] <= x_values[1]):  # {"이름": (0, 1)}
-                                return True
+                    
+                    for y in an_yoil[idx + 1:]:
+                        y_values = tuple(y.values())[0]
+                        if ((y_values[0] <= x_values[0] <= y_values[1] or y_values[0] <= x_values[1] <= y_values[1]) or
+                            (x_values[0] <= y_values[0] <= x_values[1] or x_values[0] <= y_values[1] <= x_values[1])):  # {"이름": (0, 1)}
+                            return True
 
         return False
 
@@ -78,11 +76,9 @@ class TimeTableGenerator:
             for subject in an_yoil:
                 subject_time = tuple(subject.values())[0]
 
-                if type(subject_time) is tuple:  # "사이버수업" 을 비교하는 것을 방지
-                
-                    if subject_time[1] > max_time:
-                        max_time = subject_time[1]
-        
+                if subject_time[1] > max_time:
+                    max_time = subject_time[1]
+    
         nrow = (round(max_time / 60)) + 1
 
         header_img = PIL.Image.open("images/header.png")
