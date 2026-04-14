@@ -86,6 +86,9 @@ ttgen = TimeTableGenerator(subjects=[subject1, subject2])
 ttgen.generate(path="./timetable.png")
 ```
 
+<img width="959" height="571" alt="image" src="https://github.com/user-attachments/assets/d15f9d59-4ea0-4710-ba2e-4fea51eef274" />
+
+
 ## 기여
 
 기여는 언제나 환영합니다! 개선 사항이나 버그 수정을 위해 이슈를 열거나 풀 리퀘스트를 제출해 주세요.
